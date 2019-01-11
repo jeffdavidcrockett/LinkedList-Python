@@ -86,5 +86,5 @@ class LinkedList:
                 else:
                     node2 = node2.get_next()
             node1 = node1.get_next()
-        if duplicates is False:
+        if not duplicates:
             print("\nNo duplicates found")
