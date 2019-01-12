@@ -38,7 +38,7 @@ class LinkedList:
         variable to 0.
         """
         self.head = None
-        self.size = 0
+        self.size_of = 0
 
     def is_empty(self):
         """
@@ -56,7 +56,7 @@ class LinkedList:
         new_node = Node(data)
         new_node.set_next(self.head)
         self.head = new_node
-        self.size += 1
+        self.size_of += 1
 
     def print_list(self):
         """
@@ -68,11 +68,11 @@ class LinkedList:
             print(current.get_data(), end=" ")
             current = current.get_next()
 
-    def size_of(self):
+    def size(self):
         """
         Returns size of list.
         """
-        return self.size
+        return self.size_of
 
     def search(self, data):
         """
@@ -110,7 +110,7 @@ class LinkedList:
                 self.head = current.get_next()
             else:
                 previous.set_next(current.get_next())
-            self.size -= 1
+            self.size_of -= 1
         else:
             print("List item does not exist")
 
@@ -127,6 +127,7 @@ class LinkedList:
                 if node1.get_data() == node2.get_next().get_data():
                     node2.set_next(node2.get_next().get_next())
                     duplicates = True
+                    self.size_of -= 1
                 else:
                     node2 = node2.get_next()
             node1 = node1.get_next()
