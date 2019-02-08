@@ -3,6 +3,7 @@ class Node:
         """
         Initializes a node object. Sets its data value. Sets the next pointer to None.
         """
+
         self.data = data
         self.next = None
 
@@ -10,24 +11,28 @@ class Node:
         """
         Returns the data value of node.
         """
+
         return self.data
 
     def get_next(self):
         """
         Returns the next pointer of node.
         """
+
         return self.next
 
     def set_data(self, new_data):
         """
         Sets the node's data.
         """
+
         self.data = new_data
 
     def set_next(self, new_next):
         """
         Sets the node's next pointer.
         """
+
         self.next = new_next
 
 
@@ -37,6 +42,7 @@ class LinkedList:
         Initializes the list with the head variable set to None and size
         variable to 0.
         """
+
         self.head = None
         self.size_of = 0
 
@@ -45,6 +51,7 @@ class LinkedList:
         Does a boolean check on the head node. If head is None, the list is
         empty and False is returned. Otherwise, True is returned.
         """
+
         return self.head is None
 
     def add(self, data):
@@ -53,6 +60,7 @@ class LinkedList:
         the new node is set as the head variable, and the old head variable is moved
         down one spot. Also, size variable is increased by 1.
         """
+
         new_node = Node(data)
         new_node.set_next(self.head)
         self.head = new_node
@@ -62,6 +70,7 @@ class LinkedList:
         """
         Prints each node's data value as it traverses through list.
         """
+
         current = self.head
 
         while current is not None:
@@ -72,6 +81,7 @@ class LinkedList:
         """
         Returns size of list.
         """
+
         return self.size_of
 
     def search(self, data):
@@ -79,6 +89,7 @@ class LinkedList:
         Returns a boolean value based on whether or not the specified node data value
         is found or not, as it traverses through the list.
         """
+
         current = self.head
         found = False
 
@@ -94,6 +105,7 @@ class LinkedList:
         """
         Removes the node that is specified in the data parameter.
         """
+
         current = self.head
         previous = None
         found = False
@@ -118,6 +130,7 @@ class LinkedList:
         """
         Removes any duplicate nodes that exist in an unordered fashion.
         """
+
         node1 = self.head
         duplicates = False
 
@@ -133,3 +146,18 @@ class LinkedList:
             node1 = node1.get_next()
         if not duplicates:
             print("\nNo duplicates found")
+
+    def clear(self):
+        """
+        Removes all nodes in list.
+        """
+
+        current = self.head
+        next_node = None
+
+        if self.head:
+            while current is not None:
+                next_node = current.get_next()
+                current = None
+                self.size_of -= 1
+                current = next_node
